@@ -10,6 +10,7 @@ fastjson = "*"
 asyncpg = "*"
 loguru = "*"
 pyyaml = "*"
+argon2-cffi = "*"
 
 [dev-packages]
 

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ca9bc8278cf5dd8ffd6d0aded7082c5dbe4df1ce232c8a8f4750fc9ee6c63997"
+            "sha256": "1bb9142238eed16231d51627a85f6aeffa296029615eff719eebe5fc6b793cca"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -32,6 +32,14 @@
             "markers": "python_version >= '3.6'",
             "version": "==0.17.0"
         },
+        "argon2-cffi": {
+            "hashes": [
+                "sha256:f710b61103d1a1f692ca3ecbd1373e28aa5e545ac625ba067ff2feca1b2bb870",
+                "sha256:fa7e7d1fc22514a32b1761fdfa1882b6baa5c36bb3ef557bdd69e6fc9ba14a41"
+            ],
+            "index": "pypi",
+            "version": "==21.1.0"
+        },
         "asyncpg": {
             "hashes": [
                 "sha256:dd2fa063c3344823487d9ddccb40802f02622ddf8bf8a6cc53885ee7a2c1c0c6",
@@ -39,6 +47,13 @@
             ],
             "index": "pypi",
             "version": "==0.24.0"
+        },
+        "cffi": {
+            "hashes": [
+                "sha256:57e9ac9ccc3101fac9d6014fba037473e4358ef4e89f8e181f8951a2c0162024",
+                "sha256:920f0d66a896c2d99f0adbb391f990a84091179542c205fa53ce5787aff87954"
+            ],
+            "version": "==1.15.0"
         },
         "fastjson": {
             "hashes": [
@@ -77,6 +92,13 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==5.2.0"
+        },
+        "pycparser": {
+            "hashes": [
+                "sha256:8ee45429555515e1f6b185e78100aea234072576aa43ab53aefcae078162fca9",
+                "sha256:e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
+            ],
+            "version": "==2.21"
         },
         "pypika-tortoise": {
             "hashes": [
