@@ -9,9 +9,17 @@ import os
 PROJECT = 'sanic-flash-sale'
 MODE = NotImplemented
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+RESOURCE_DIR = os.path.join(BASE_DIR, 'resources')
 
 # App registry
 INSTALLED_APPS = [
+    'apps.admin',
+    'apps.common',
+    'apps.consumer',
+    'apps.form',
+    'apps.permission',
+    'apps.product',
+    'apps.store',
 ]
 
 # Database conf
@@ -30,8 +38,8 @@ POSTGRES = {
         },
     },
     'apps': {
-        appname: {
-            'models': ['models'],
+        appname.split('.')[1]: {
+            'models': [f'{appname}.models'],
         } for appname in INSTALLED_APPS
     },
     'use_tz': False,
