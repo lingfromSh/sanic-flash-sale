@@ -1,0 +1,9 @@
+# vscode
+.vscode/
+
+# jetbrains
+.idea/
+
+# python
+*.pyc
+__pycache__/
