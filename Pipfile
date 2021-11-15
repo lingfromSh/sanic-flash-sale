@@ -11,7 +11,7 @@ asyncpg = "*"
 loguru = "*"
 pyyaml = "*"
 argon2-cffi = "*"
-sanic-graphql = "*"
+graphene = "*"
 
 [dev-packages]
 yapf = "*"
