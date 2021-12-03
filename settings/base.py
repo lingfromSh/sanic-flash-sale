@@ -8,6 +8,7 @@ import os
 # Project conf
 PROJECT = 'sanic-flash-sale'
 MODE = NotImplemented
+VERSION = '0.0.1'
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 RESOURCE_DIR = os.path.join(BASE_DIR, 'resources')
 
