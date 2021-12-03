@@ -1,9 +1,9 @@
 from tortoise import fields
-from tortoise.models import Model
+from tortoise.models import Model, ModelMeta
 from utils.snowflake import generate_unique_id
 
 
-class BaseModel(Model):
+class BaseModel(Model, metaclass=ModelMeta):
 
     id = fields.BigIntField(pk=True, default=generate_unique_id)
     
