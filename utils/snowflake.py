@@ -1,8 +1,5 @@
 from datetime import datetime
 
-from sanic import Sanic
-
-application = Sanic.get_app()
 
 class Snowflake:
     """
@@ -10,6 +7,15 @@ class Snowflake:
 
     64 bits = 5 bits + 6 bits + 43 bits + 10 bits
     """
+
+    __instances__ = {}
+
+    def __new__(cls, center_id, worker_id):
+        hashkey = f"{center_id}:{worker_id}"
+        if hashkey not in cls.__instances__:
+            instance = super().__new__(cls, center_id, worker_id)
+            cls.__instances__[hashkey] = instance
+        return cls.__instances__[hashkey]
 
     def __init__(self, center_id, worker_id) -> None:
         self.center_id = center_id
@@ -40,5 +46,8 @@ class Snowflake:
         return unique_id
 
 
-snowflake = Snowflake(center_id=application.config.CENTER_ID, worker_id=application.config.WORKER_ID)
-generate_unique_id = snowflake.next_id
+def generate_unique_id():
+    from sanic import Sanic
+    application = Sanic.get_app()
+    snowflake = Snowflake(center_id=application.config.CENTER_ID, worker_id=application.config.WORKER_ID)
+    return snowflake.next_id()

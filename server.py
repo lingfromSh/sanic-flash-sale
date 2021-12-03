@@ -2,8 +2,9 @@ import argparse
 
 from sanic import Sanic
 from sanic.config import Config
-from sanic.response import HTTPResponse
+from routing import bp
 from tortoise.contrib.sanic import register_tortoise
+
 
 # Collect command line args
 parser = argparse.ArgumentParser()
@@ -20,12 +21,9 @@ application = Sanic('sanic-flash-sale', config=config, strict_slashes=True)
 # Register tortoise for sanic.
 register_tortoise(application, config=application.config.POSTGRES, generate_schemas=True)
 
-
-# Register health check url
-@application.get("/health-check/")
-async def health_check(request):
-    return HTTPResponse("ok", content_type="application/json")
+# Register blueprints
+application.blueprint(bp)
 
 
 if __name__ == "__main__":
-    application.run(host='0.0.0.0', port=8000, access_log=True)
+    application.run(host='0.0.0.0', port=8000, access_log=True, auto_reload=True)
